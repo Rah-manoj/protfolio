@@ -1,4 +1,4 @@
-# Shanmugakumar M. — Data Analyst Portfolio
+# Shanmugakumar M — Data Analyst Portfolio
 
 A static, single-page portfolio website built with HTML, CSS, and JavaScript.
 
