@@ -1,26 +1,31 @@
 # Shanmugakumar M — Data Analyst Portfolio
 
-A static, single-page portfolio website built with HTML, CSS, and JavaScript.
+A single-page portfolio built with React, TypeScript, and Vite. The page keeps the original layout. Netlify publishes the `build` folder.
 
-## Files
+## Local preview
 
-- `index.html` — complete portfolio website.
-- `assets/Shanmugakumar-M-Resume.pdf` — resume used by the Download Resume link.
-- `netlify.toml` — Netlify publish configuration for this static site.
+```bash
+npm install
+npm run dev
+```
 
-## Preview locally
+Production check:
 
-Open `index.html` in a browser. The resume link expects the `assets` folder to remain beside `index.html`.
+```bash
+npm run build
+npm run preview
+```
 
-## Publish with GitHub and Netlify
+`npm run build` compiles the site into `dist`, including everything in `public` (the resume, favicon, and `robots.txt`), then copies that output into `build`. Publish `build`. Do not commit `dist`.
 
-1. Create a new GitHub repository.
-2. Upload `index.html`, `assets/`, `README.md`, `.gitignore`, and `netlify.toml` to the repository root.
-3. In Netlify, choose **Add new project → Import an existing project**, connect GitHub, and select the repository.
-4. Use an empty build command and `.` as the publish directory, then deploy.
+## Publish a new Netlify site
 
-No Node.js build is required for this static HTML version.
+1. Push this repository to GitHub.
+2. In Netlify, choose **Add new project → Import an existing project** and select the repository.
+3. Leave the build settings on the values from `netlify.toml`:
+   - Build command: `npm run build`
+   - Publish directory: `build`
+   - Node version: `22`
+4. Deploy.
 
-## Personalize
-
-The hero avatar is currently a designed placeholder. To use a personal photo, add the image to the project and update the relevant hero markup in `index.html`.
+Do not publish the repository root or `dist`. Netlify publishes `build`. The resume source is `public/assets/Shanmugakumar-M-Resume.pdf`, and the download URL stays `assets/Shanmugakumar-M-Resume.pdf`.
