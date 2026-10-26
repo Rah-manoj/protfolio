@@ -444,11 +444,11 @@ export function App() {
                 </span>
                 <span>shanmugakuamr1999@gmail.com</span>
               </a>
-              <a className="contact-link-row phone-placeholder" href="tel:YOUR_PHONE_NUMBER" data-phone-placeholder>
+              <a className="contact-link-row" href="tel:+919715063420">
                 <span>
                   <span className="contact-icon-text">☎</span> Phone
                 </span>
-                <span>ADD YOUR CONTACT NUMBER</span>
+                <span>+91 97150 63420</span>
               </a>
               <a
                 className="contact-link-row"

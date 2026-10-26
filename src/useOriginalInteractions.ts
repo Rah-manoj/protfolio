@@ -158,13 +158,6 @@ export function useOriginalInteractions() {
       });
     });
 
-    const phoneLink = document.querySelector("[data-phone-placeholder]");
-    if (phoneLink?.getAttribute("href") === "tel:YOUR_PHONE_NUMBER") {
-      listen(phoneLink, "click", (event) => {
-        event.preventDefault();
-      });
-    }
-
     if (!reducedMotion) {
       let scrollFrame = 0;
       const ease = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - ((-2 * t + 2) ** 3) / 2);
