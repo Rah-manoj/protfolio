@@ -1,0 +1,10 @@
+import { cpSync, rmSync } from "node:fs";
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+const dist = resolve(root, "dist");
+const build = resolve(root, "build");
+
+rmSync(build, { recursive: true, force: true });
+cpSync(dist, build, { recursive: true });
