@@ -1,0 +1,780 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Great+Vibes&family=Outfit:wght@300;400;500;600;700&display=swap");
+
+html[data-page="passion"] {
+  background: #07080d;
+  color-scheme: dark;
+}
+
+html[data-page="passion"] body {
+  background: #07080d;
+  color: #f6f3ee;
+}
+
+html.js[data-page="passion"] {
+  scroll-behavior: smooth;
+}
+
+.passion section {
+  background: transparent;
+  padding-block: 0;
+}
+
+.passion h1,
+.passion h2,
+.passion h3,
+.passion h1 span {
+  max-width: none;
+  color: #f6f3ee;
+  font-family: Outfit, ui-sans-serif, system-ui, sans-serif;
+  font-style: normal;
+}
+
+.passion h1 span {
+  display: block;
+  font-weight: 560;
+  letter-spacing: -0.04em;
+}
+
+.passion h2 {
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.2;
+  letter-spacing: 0.12em;
+}
+
+.passion {
+  --gold: #e7b34a;
+  --gold-2: #f0c56a;
+  --ink: #07080d;
+  --card: #12141b;
+  --line: rgba(255, 255, 255, 0.08);
+  --muted: #b7b2a8;
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at 78% 18%, rgba(232, 168, 72, 0.16), transparent 28%),
+    radial-gradient(circle at 12% 0%, rgba(64, 92, 160, 0.18), transparent 32%),
+    var(--ink);
+  color: #f6f3ee;
+  font-family: Outfit, ui-sans-serif, system-ui, sans-serif;
+}
+
+.passion a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.passion svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.passion .p-play svg,
+.p-gold svg,
+.p-listen svg {
+  fill: currentColor;
+  stroke: none;
+}
+
+.p-bar {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  height: 78px;
+  padding: 0 clamp(18px, 4vw, 48px);
+  background: rgba(7, 8, 13, 0.78);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px);
+}
+
+.p-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: max-content;
+}
+
+.p-logo strong {
+  display: block;
+  font-family: "Great Vibes", cursive;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.p-logo small {
+  display: block;
+  margin-top: 2px;
+  color: #9c978e;
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.p-wave {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 22px;
+}
+
+.p-wave i {
+  display: block;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--gold);
+}
+
+.p-wave i:nth-child(1) { height: 8px; }
+.p-wave i:nth-child(2) { height: 16px; }
+.p-wave i:nth-child(3) { height: 22px; }
+.p-wave i:nth-child(4) { height: 12px; }
+
+.p-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+}
+
+.p-links a {
+  padding: 8px 14px;
+  border-radius: 999px;
+  color: #d9d4cb;
+  font-size: 14px;
+}
+
+.p-links a:first-child {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.p-back {
+  color: var(--gold-2) !important;
+}
+
+.p-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.p-listen,
+.p-gold,
+.p-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font-size: 14px;
+}
+
+.p-listen {
+  border: 1px solid rgba(231, 179, 74, 0.7);
+  color: var(--gold-2);
+}
+
+.p-menu {
+  display: none;
+  margin-left: auto;
+  padding: 8px 0 8px 12px;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.p-hero {
+  position: relative;
+  min-height: clamp(560px, 68vh, 720px);
+  padding: clamp(36px, 6vh, 72px) clamp(18px, 5vw, 72px) 36px;
+  overflow: hidden;
+}
+
+.p-hero-photo {
+  position: absolute;
+  inset: 0 0 0 32%;
+  background:
+    linear-gradient(90deg, #07080d 0%, rgba(7, 8, 13, 0.55) 14%, rgba(7, 8, 13, 0.05) 38%, transparent 52%),
+    linear-gradient(180deg, rgba(7, 8, 13, 0.25), transparent 18% 72%, #07080d),
+    url("/assets/passion-singer.jpg") 42% 18% / cover no-repeat;
+}
+
+.p-hero-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 520px;
+}
+
+.p-kicker {
+  margin: 0 0 18px;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.p-hero h1 {
+  margin: 0;
+  font-size: clamp(42px, 5vw, 64px);
+  font-weight: 560;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+.p-hero h1 em {
+  display: block;
+  margin-top: 6px;
+  color: var(--gold-2);
+  font-family: "Great Vibes", cursive;
+  font-size: 1.35em;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.p-lead {
+  max-width: 46ch;
+  margin: 18px 0 0;
+  color: #ddd8d0;
+  font-size: 15px;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.p-stats {
+  display: flex;
+  gap: 22px;
+  margin: 28px 0 0;
+}
+
+.p-stats div {
+  padding-right: 22px;
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.p-stats div:last-child {
+  border-right: 0;
+}
+
+.p-stats dt {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 560;
+  letter-spacing: -0.04em;
+}
+
+.p-stats dd {
+  margin: 4px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.p-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.p-gold {
+  background: var(--gold);
+  color: #1a1408;
+  font-weight: 650;
+}
+
+.p-ghost {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.p-note {
+  position: absolute;
+  top: 18%;
+  right: clamp(28px, 6vw, 90px);
+  z-index: 1;
+  margin: 0;
+  color: #f3efe6;
+  font-family: Caveat, cursive;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.05;
+  text-align: right;
+  transform: rotate(-8deg);
+}
+
+.p-scroll {
+  position: absolute;
+  top: 46%;
+  right: 22px;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  color: #c8c3ba;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.p-scroll span {
+  writing-mode: vertical-rl;
+}
+
+.p-scroll i {
+  width: 22px;
+  height: 36px;
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  border-radius: 20px;
+  position: relative;
+}
+
+.p-scroll i::after {
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 3px;
+  height: 7px;
+  border-radius: 3px;
+  background: #fff;
+  transform: translateX(-50%);
+}
+
+.p-board {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.8fr) minmax(220px, 0.7fr);
+  gap: 22px;
+  padding: 10px clamp(18px, 4vw, 48px) 28px;
+}
+
+.p-board-head,
+.p-about h2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 14px;
+  color: var(--gold);
+  font-size: 13px;
+  font-weight: 650;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.p-board-head h2,
+.p-about h2 {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: inherit;
+}
+
+.p-board-head a {
+  color: #d8d3ca;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  font-weight: 500;
+}
+
+.p-album-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.p-album h3,
+.p-album p,
+.p-chorus-card h3,
+.p-about p {
+  margin: 0;
+}
+
+.p-album h3 {
+  margin-top: 10px;
+  font-size: 14px;
+  font-weight: 560;
+}
+
+.p-album p,
+.p-chorus-card small,
+.p-chorus li span,
+.p-about li {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.p-cover,
+.p-mic {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: #1b1e27;
+}
+
+.p-cover {
+  aspect-ratio: 1;
+}
+
+.p-cover.is-nina {
+  background:
+    radial-gradient(circle at 72% 28%, #ffd29a 0 7%, transparent 8%),
+    linear-gradient(#f7a15a, #e36a32 46%, #24160f 46% 62%, #120e0c 62%);
+}
+
+.p-cover.is-nina::before,
+.p-cover.is-vaanam::before {
+  content: "";
+  position: absolute;
+  left: 18%;
+  bottom: 28%;
+  width: 18px;
+  height: 34px;
+  border-radius: 12px 12px 4px 4px;
+  background: #1a120e;
+  box-shadow: 22px 6px 0 -2px #1a120e;
+}
+
+.p-cover.is-thendral {
+  background:
+    radial-gradient(circle at 50% 42%, rgba(232, 196, 140, 0.45), transparent 26%),
+    linear-gradient(160deg, #3a342c, #14120f 70%);
+}
+
+.p-cover.is-unnai {
+  background:
+    radial-gradient(circle at 30% 20%, #fff1c9, transparent 24%),
+    linear-gradient(160deg, #e7a15a, #8a4d28 55%, #2a160e);
+}
+
+.p-cover.is-vaanam {
+  background:
+    linear-gradient(#f08a4a 0 34%, #f2c07a 34% 48%, #6e8ea8 48% 70%, #243246 70%);
+}
+
+.p-cover b {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 36%;
+  color: #f8e7c4;
+  font-family: "Great Vibes", cursive;
+  font-size: 26px;
+  font-weight: 400;
+  text-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+}
+
+.p-play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  backdrop-filter: blur(4px);
+  transform: translate(-50%, -50%);
+}
+
+.p-time {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  padding: 3px 6px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  font-size: 11px;
+}
+
+.p-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 14px;
+}
+
+.p-dots i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #3a3d46;
+}
+
+.p-dots .is-on {
+  background: #d9d4cb;
+}
+
+.p-chorus-card,
+.p-about {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: rgba(18, 20, 27, 0.88);
+}
+
+.p-mic {
+  height: 92px;
+  margin-bottom: 14px;
+  background:
+    radial-gradient(circle at 50% 70%, rgba(255, 220, 170, 0.35), transparent 28%),
+    linear-gradient(100deg, #2a2118, #14110e 40%, #3a2a1c);
+}
+
+.p-mic::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 18px;
+  width: 22px;
+  height: 46px;
+  border: 3px solid #efe6d8;
+  border-radius: 12px 12px 8px 8px;
+  transform: translateX(-50%);
+  box-shadow: 0 16px 0 -6px #efe6d8;
+}
+
+.p-chorus-card h3 {
+  font-size: 28px;
+  font-weight: 560;
+  letter-spacing: -0.04em;
+}
+
+.p-chorus-card small {
+  display: block;
+  margin-top: 4px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.p-chorus ul,
+.p-about ul {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.p-chorus li,
+.p-about li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+.p-chorus li .p-play {
+  position: static;
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  transform: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.p-chorus li strong {
+  display: block;
+  color: #f6f3ee;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.p-about p {
+  color: #ddd8d0;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.p-about li svg {
+  color: var(--gold);
+}
+
+.p-sign {
+  margin-top: 18px !important;
+  color: #f3efe6 !important;
+  font-family: "Great Vibes", cursive;
+  font-size: 34px !important;
+  text-align: right;
+}
+
+.p-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 8px clamp(18px, 4vw, 48px) 0;
+  padding: 22px 0 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.p-foot p {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0;
+  color: #d9d4cb;
+  font-size: 14px;
+}
+
+.p-follow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.p-follow a {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50%;
+}
+
+.switch-veil {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  background: #090a0e;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate3d(0, 100%, 0);
+}
+
+.switch-veil.is-in,
+.switch-veil.is-out {
+  visibility: visible;
+  pointer-events: all;
+}
+
+.switch-veil.is-in {
+  animation: switch-in 0.64s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+.switch-veil.is-out {
+  animation: switch-out 0.7s cubic-bezier(0.76, 0, 0.24, 1) forwards;
+}
+
+.switch-veil p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: #f0c56a;
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(56px, 8vw, 104px);
+  line-height: 1;
+}
+
+.switch-veil-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(231, 179, 74, 0.85), transparent);
+}
+
+@keyframes switch-in {
+  from { transform: translate3d(0, 100%, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes switch-out {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(0, -100%, 0); }
+}
+
+@media (max-width: 980px) {
+  .p-menu {
+    display: block;
+  }
+
+  .p-links {
+    display: none;
+    position: absolute;
+    top: 78px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px 18px 18px;
+    background: rgba(9, 10, 14, 0.96);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .p-links.open {
+    display: flex;
+  }
+
+  .p-listen {
+    display: none;
+  }
+
+  .p-board {
+    grid-template-columns: 1fr;
+  }
+
+  .p-note,
+  .p-scroll {
+    display: none;
+  }
+
+  .p-hero-photo {
+    inset: auto 0 0 0;
+    height: 46%;
+    background:
+      linear-gradient(180deg, #07080d, transparent 24%),
+      url("/assets/passion-singer.jpg") center 18% / cover no-repeat;
+  }
+}
+
+@media (max-width: 720px) {
+  .p-album-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .p-foot {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .p-hero h1 {
+    font-size: 40px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .switch-veil,
+  .switch-veil.is-in,
+  .switch-veil.is-out {
+    animation: none;
+    visibility: hidden;
+  }
+
+  html.js[data-page="passion"] {
+    scroll-behavior: auto;
+  }
+}
