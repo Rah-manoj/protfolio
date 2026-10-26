@@ -29,6 +29,38 @@
       *::after {
         box-sizing: border-box;
       }
+
+      /* Requested polish: focused contact area and editable project-link placeholders. */
+      .contact-section {
+        position: relative;
+        padding: clamp(34px, 5vw, 64px);
+        margin-bottom: 48px;
+        border: 1px solid #ead8ce;
+        border-radius: 28px;
+        background: linear-gradient(135deg, #fffaf7 0%, #ffffff 65%, #f8eee8 100%);
+        box-shadow: 0 18px 55px rgba(103, 58, 36, 0.07);
+      }
+      .contact-section .section-label { color: #9a5537; }
+      .contact-section .section-label::before { background: #9a5537; }
+      .contact-link-row { border-radius: 8px; }
+      .project-clickable { cursor: pointer; outline-offset: 5px; }
+      .project-clickable:focus-visible { outline: 2px solid #a45c3b; }
+      .project-clickable::after {
+        content: "↗";
+        grid-column: 3;
+        grid-row: 1;
+        align-self: start;
+        justify-self: end;
+        color: #9a5537;
+        font-size: 18px;
+      }
+      .previous-role-top { border-top: 1px solid var(--line); margin-top: 10px; }
+      .hero-aside p { margin: 0; }
+      .hero-aside { max-width: 260px; }
+      @media (max-width: 700px) {
+        .contact-section { padding: 28px 20px; margin-inline: 16px; }
+        .contact-body { margin-left: 0; }
+      }
       html {
         scroll-behavior: smooth;
         scroll-padding-top: 82px;
@@ -1264,6 +1296,38 @@
           grid-template-columns: 28px minmax(0, 1fr);
         }
       }
+
+      /* Requested polish: focused contact area and editable project-link placeholders. */
+      .contact-section {
+        position: relative;
+        padding: clamp(34px, 5vw, 64px);
+        margin-bottom: 48px;
+        border: 1px solid #ead8ce;
+        border-radius: 28px;
+        background: linear-gradient(135deg, #fffaf7 0%, #ffffff 65%, #f8eee8 100%);
+        box-shadow: 0 18px 55px rgba(103, 58, 36, 0.07);
+      }
+      .contact-section .section-label { color: #9a5537; }
+      .contact-section .section-label::before { background: #9a5537; }
+      .contact-link-row { border-radius: 8px; }
+      .project-clickable { cursor: pointer; outline-offset: 5px; }
+      .project-clickable:focus-visible { outline: 2px solid #a45c3b; }
+      .project-clickable::after {
+        content: "↗";
+        grid-column: 3;
+        grid-row: 1;
+        align-self: start;
+        justify-self: end;
+        color: #9a5537;
+        font-size: 18px;
+      }
+      .previous-role-top { border-top: 1px solid var(--line); margin-top: 10px; }
+      .hero-aside p { margin: 0; }
+      .hero-aside { max-width: 260px; }
+      @media (max-width: 700px) {
+        .contact-section { padding: 28px 20px; margin-inline: 16px; }
+        .contact-body { margin-left: 0; }
+      }
       html {
         scroll-behavior: smooth;
         scroll-padding-top: 88px;
@@ -1555,11 +1619,27 @@
         letter-spacing: 0.16em;
         text-transform: uppercase;
       }
+      .avatar-placeholder.avatar-image-wrap {
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        background: radial-gradient(circle at 35% 25%, #f2b18a 0%, #bd6038 52%, #71351f 100%);
+        box-shadow: 0 0 0 8px rgba(183, 94, 52, 0.12), 0 24px 65px rgba(91, 42, 24, 0.2);
+        animation: avatar-float 6s ease-in-out infinite;
+      }
       .avatar-photo {
+        display: block;
         width: 100%;
         height: 100%;
         border-radius: 50%;
         object-fit: cover;
+        object-position: center 32%;
+      }
+      @keyframes avatar-float {
+        0%, 100% { translate: 0 0; }
+        50% { translate: 0 -7px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .avatar-placeholder.avatar-image-wrap { animation: none; }
       }
       @keyframes orbit-turn {
         to { transform: rotate(360deg); }
@@ -1716,8 +1796,8 @@
             Download Resume <span aria-hidden="true">↓</span>
           </a>
         </div>
-        <a class="header-cta" href="mailto:shanmugakuamr1999@gmail.com"
-          >Email me <span aria-hidden="true">↗</span></a
+        <a class="header-cta" href="YOUR_SINGER_PORTFOLIO_URL" aria-label="Open my future singer portfolio"
+          >My Passion Portfolio <span aria-hidden="true">↗</span></a
         >
       </nav>
     </header>
@@ -1744,14 +1824,7 @@
             </div>
           </div>
           <div class="hero-aside">
-            <strong>Data Analyst</strong>
-            <p>
-              I work at the intersection of data quality, analytical thinking,
-              and intelligent automation.
-            </p>
-            <a href="mailto:shanmugakuamr1999@gmail.com"
-              >Email me <span aria-hidden="true">↗</span></a
-            >
+            <p>Turning complex information into reliable insights and practical solutions.</p>
           </div>
         </div>
         <div class="hero-art">
@@ -1774,17 +1847,8 @@
             <circle class="node node-d" cx="560" cy="275" r="7" />
             <circle cx="320" cy="300" r="115" fill="#fff" />
           </svg>
-          <!-- Replace this placeholder with <img class="avatar-photo" src="profile-photo.jpg" alt="Shanmugakumar M"> when your photo is ready. -->
-          <div
-            class="avatar-placeholder"
-            role="img"
-            aria-label="Profile photo placeholder"
-          >
-            <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
-              <circle cx="32" cy="23" r="9" />
-              <path d="M14 53c1.5-9.2 8.4-14 18-14s16.5 4.8 18 14" />
-            </svg>
-            <span>Add profile photo</span>
+          <div class="avatar-placeholder avatar-image-wrap" role="img" aria-label="Shanmugakumar 3D avatar">
+            <img class="avatar-photo" src="shanmugakumar-3d-avatar.png" alt="Shanmugakumar M 3D avatar" />
           </div>
         </div>
         <div class="hero-scroll">Scroll to explore</div>
@@ -1913,34 +1977,27 @@
                 <span aria-hidden="true">·</span> Erode, Tamil Nadu
               </p>
             </div>
-            <span class="experience-duration">4 years exp</span>
+            <span class="experience-duration">Jan 2024 – Present</span>
           </div>
           <ul class="experience-bullets">
-            <li>
-              Conducted cross-platform content research and monitoring,
-              identifying relevant digital content and recording findings for
-              further verification.
-            </li>
-            <li>
-              Performed URL validation and status checks, maintaining accurate
-              and up-to-date operational dashboards.
-            </li>
-            <li>
-              Organized high-volume records, categorized links, and maintained
-              structured tracking sheets to support reporting and data review.
-            </li>
-            <li>
-              Prepared client-facing reports and documented verification results
-              to support content enforcement workflows.
-            </li>
-            <li>
-              Managed ticket updates and coordinated findings with internal
-              teams to maintain reporting accuracy and workflow continuity.
-            </li>
-            <li>
-              Supported automation initiatives for link extraction,
-              verification, and repetitive data-handling tasks.
-            </li>
+            <li>Lead a team of 5 members in anti-piracy operations while maintaining productivity and quality targets.</li>
+            <li>Support onboarding, mentoring, and operational guidance for team members.</li>
+            <li>Coordinate escalation handling, reporting, and process-improvement activities.</li>
+            <li>Ensure adherence to SLA requirements and operational compliance standards.</li>
+          </ul>
+          <div class="experience-top previous-role-top">
+            <div>
+              <h3>Digital Content Analyst</h3>
+              <p class="experience-company">WARX Digital Private Limited <span aria-hidden="true">·</span> Erode, Tamil Nadu</p>
+            </div>
+            <span class="experience-duration">Dec 2022 – Jan 2024</span>
+          </div>
+          <ul class="experience-bullets">
+            <li>Monitored and investigated unauthorized digital content across online platforms to identify piracy-related activities and policy violations.</li>
+            <li>Reviewed user-generated content, reports, and digital links while following operational guidelines and quality standards.</li>
+            <li>Handled sensitive, time-critical investigations with attention to detail and established escalation procedures.</li>
+            <li>Prepared operational dashboards and reports using Power BI and Excel to track trends and performance.</li>
+            <li>Collaborated with teams to improve moderation workflows, reporting quality, and issue resolution.</li>
           </ul>
           <div class="focus-tags" aria-label="Key focus areas">
             <span class="focus-tag">Data Validation</span
@@ -1963,7 +2020,7 @@
             <h2 id="projects-title">Ideas made <em>operational.</em></h2>
           </div>
           <div class="project-list">
-            <article class="project reveal">
+            <article class="project reveal project-clickable" data-project-url="" tabindex="0" role="link" aria-label="Add project URL for AI-Powered Data Cleaning &amp; ETL Automation">
               <div class="project-number">01</div>
               <div>
                 <h3>AI-Powered Data Cleaning &amp; ETL Automation</h3>
@@ -1987,7 +2044,7 @@
                 </svg>
               </div>
             </article>
-            <article class="project reveal">
+            <article class="project reveal project-clickable" data-project-url="" tabindex="0" role="link" aria-label="Add project URL for Sales Data Analysis &amp; Power BI Dashboard">
               <div class="project-number">02</div>
               <div>
                 <h3>Sales Data Analysis &amp; Power BI Dashboard</h3>
@@ -2015,7 +2072,7 @@
                 </svg>
               </div>
             </article>
-            <article class="project reveal">
+            <article class="project reveal project-clickable" data-project-url="" tabindex="0" role="link" aria-label="Add project URL for Telegram Link Extraction &amp; Verification Automation">
               <div class="project-number">03</div>
               <div>
                 <h3>Telegram Link Extraction &amp; Verification Automation</h3>
@@ -2066,6 +2123,10 @@
                 Email</span
               ><span>shanmugakuamr1999@gmail.com</span></a
             >
+            <a class="contact-link-row phone-placeholder" href="tel:YOUR_PHONE_NUMBER" data-phone-placeholder>
+              <span><span class="contact-icon-text">☎</span> Phone</span>
+              <span>ADD YOUR CONTACT NUMBER</span>
+            </a>
             <a
               class="contact-link-row"
               href="https://www.linkedin.com/in/shanmugakumar-m"
@@ -2199,6 +2260,27 @@
           { rootMargin: "-35% 0px -55% 0px", threshold: 0 },
         );
         sections.forEach((section) => sectionObserver.observe(section));
+      }
+      // Add a URL to each project's data-project-url attribute when the project is published.
+      document.querySelectorAll(".project-clickable").forEach((project) => {
+        const openProject = () => {
+          const url = project.dataset.projectUrl?.trim();
+          if (url) window.open(url, "_blank", "noopener,noreferrer");
+        };
+        project.addEventListener("click", openProject);
+        project.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openProject();
+          }
+        });
+      });
+      // Replace YOUR_PHONE_NUMBER in the phone link with your actual number.
+      const phoneLink = document.querySelector("[data-phone-placeholder]");
+      if (phoneLink && phoneLink.getAttribute("href") === "tel:YOUR_PHONE_NUMBER") {
+        phoneLink.addEventListener("click", (event) => {
+          event.preventDefault();
+        });
       }
       const revealItems = document.querySelectorAll(".reveal");
       if (
