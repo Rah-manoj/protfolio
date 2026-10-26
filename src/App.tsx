@@ -1,4 +1,32 @@
+import { useState } from "react";
 import { useOriginalInteractions } from "./useOriginalInteractions";
+
+function Avatar() {
+  const [missing, setMissing] = useState(false);
+
+  if (missing) {
+    return (
+      <div className="avatar-placeholder avatar-image-wrap" role="img" aria-label="Shanmugakumar 3D avatar">
+        <span className="avatar-fallback">SM</span>
+      </div>
+    );
+  }
+
+  return (
+    <div className="avatar-stage">
+      <div className="avatar-tilt">
+        <img
+          className="avatar-photo"
+          src="/assets/character-avatar.webp"
+          alt="Shanmugakumar, 3D character"
+          width={273}
+          height={873}
+          onError={() => setMissing(true)}
+        />
+      </div>
+    </div>
+  );
+}
 
 export function App() {
   useOriginalInteractions();
@@ -24,8 +52,11 @@ export function App() {
             <a className="nav-resume" href="#resume-download" data-resume-download>
               Download Resume <span aria-hidden="true">↓</span>
             </a>
+            <a className="nav-passion" href="/passion" data-switch="passion">
+              My Passion Portfolio
+            </a>
           </div>
-          <a className="header-cta" href="YOUR_SINGER_PORTFOLIO_URL" aria-label="Open my future singer portfolio">
+          <a className="header-cta" href="/passion" data-switch="passion" aria-label="Open Rahmanoj passion portfolio">
             My Passion Portfolio <span aria-hidden="true">↗</span>
           </a>
         </nav>
@@ -77,9 +108,7 @@ export function App() {
               <circle className="node node-d" cx="560" cy="275" r="7" />
               <circle cx="320" cy="300" r="115" fill="#fff" />
             </svg>
-            <div className="avatar-placeholder avatar-image-wrap" role="img" aria-label="Shanmugakumar 3D avatar">
-              <img className="avatar-photo" src="shanmugakumar-3d-avatar.png" alt="Shanmugakumar M 3D avatar" />
-            </div>
+            <Avatar />
           </div>
           <div className="hero-scroll">Scroll to explore</div>
         </section>
@@ -254,9 +283,15 @@ export function App() {
           <div className="wrap">
             <div className="section-head reveal">
               <div className="section-label">/ Projects</div>
-              <h2 id="projects-title">
-                Ideas made <em>operational.</em>
-              </h2>
+              <div>
+                <h2 id="projects-title">
+                  Ideas made <em>operational.</em>
+                </h2>
+                <p className="projects-note">
+                  Three working examples: cleaning a dataset before it is trusted, reading sales performance, and
+                  turning a repetitive link check into a file someone can review.
+                </p>
+              </div>
             </div>
             <div className="project-list">
               <article
@@ -266,25 +301,36 @@ export function App() {
                 role="link"
                 aria-label="Add project URL for AI-Powered Data Cleaning & ETL Automation"
               >
-                <div className="project-number">01</div>
-                <div>
+                <div className="project-copy">
+                  <div className="project-kicker">
+                    <span className="project-number">01</span>
+                    <span className="status">In development</span>
+                  </div>
                   <h3>AI-Powered Data Cleaning & ETL Automation</h3>
                   <p>
-                    Developing an n8n-based workflow to profile datasets, identify quality issues, validate cleaning
-                    rules, transform records, and prepare structured outputs for analysis.
+                    An n8n workflow that profiles a dataset, flags quality issues, and only transforms records that
+                    pass the cleaning rules.
                   </p>
-                  <span className="status">In development</span>
-                  <p className="project-tools">n8n · Data quality · ETL automation</p>
+                  <ul className="project-points">
+                    <li>Profiles incoming tables and marks missing or inconsistent fields.</li>
+                    <li>Checks each cleaning rule before a record is changed.</li>
+                    <li>Writes a structured output that is ready for analysis.</li>
+                  </ul>
+                  <p className="project-tools">
+                    <span>n8n</span>
+                    <span>Data quality</span>
+                    <span>ETL</span>
+                  </p>
                 </div>
                 <div className="project-visual" aria-hidden="true">
-                  <svg viewBox="0 0 220 120">
-                    <path className="diagram-flow" d="M56 60h36m36 0h36" />
-                    <rect className="diagram-box" x="18" y="39" width="40" height="42" rx="11" />
-                    <rect className="diagram-box" x="92" y="39" width="40" height="42" rx="11" />
-                    <rect className="diagram-box" x="166" y="39" width="36" height="42" rx="11" />
-                    <path className="diagram-glyph" d="M30 51h16M30 58h12M30 65h15" />
-                    <path className="diagram-glyph" d="m103 60 6 6 12-13" />
-                    <path className="diagram-glyph" d="M176 51h16M176 58h16M176 65h11" />
+                  <svg viewBox="0 0 220 150">
+                    <path className="diagram-flow" d="M58 75h32m40 0h32" />
+                    <rect className="diagram-box" x="16" y="42" width="46" height="66" rx="12" />
+                    <rect className="diagram-box" x="88" y="42" width="46" height="66" rx="12" />
+                    <rect className="diagram-box" x="162" y="42" width="42" height="66" rx="12" />
+                    <path className="diagram-glyph" d="M28 62h22M28 74h16M28 86h20" />
+                    <path className="diagram-glyph" d="m100 75 7 7 14-16" />
+                    <path className="diagram-glyph" d="M174 62h18M174 74h18M174 86h12" />
                   </svg>
                 </div>
               </article>
@@ -295,27 +341,39 @@ export function App() {
                 role="link"
                 aria-label="Add project URL for Sales Data Analysis & Power BI Dashboard"
               >
-                <div className="project-number">02</div>
-                <div>
+                <div className="project-copy">
+                  <div className="project-kicker">
+                    <span className="project-number">02</span>
+                    <span className="status">Portfolio study</span>
+                  </div>
                   <h3>Sales Data Analysis & Power BI Dashboard</h3>
                   <p>
-                    A portfolio project focused on exploring sales trends, customer patterns, key performance
-                    indicators, and business performance through data analysis and visualization.
+                    A dashboard for reading sales trends, customer patterns, and a short set of performance indicators
+                    without digging through the raw table.
                   </p>
-                  <p className="project-tools">Data analysis · Power BI · Visualization</p>
+                  <ul className="project-points">
+                    <li>Follows sales over time and where the volume concentrates.</li>
+                    <li>Surfaces customer patterns next to the main KPIs.</li>
+                    <li>Keeps the view in Power BI so the story stays in one place.</li>
+                  </ul>
+                  <p className="project-tools">
+                    <span>Power BI</span>
+                    <span>Data analysis</span>
+                    <span>Visualization</span>
+                  </p>
                 </div>
                 <div className="project-visual" aria-hidden="true">
-                  <svg viewBox="0 0 220 120">
-                    <path className="diagram-axis" d="M25 94h170M32 90V25" />
-                    <rect className="diagram-bar" x="50" y="65" width="22" height="29" rx="4" />
-                    <rect className="diagram-bar" x="88" y="48" width="22" height="46" rx="4" />
-                    <rect className="diagram-bar" x="126" y="56" width="22" height="38" rx="4" />
-                    <rect className="diagram-bar" x="164" y="34" width="22" height="60" rx="4" />
-                    <path className="diagram-trend" d="m45 57 42-16 38 8 49-25" />
-                    <circle className="diagram-point" cx="45" cy="57" r="3" />
-                    <circle className="diagram-point" cx="87" cy="41" r="3" />
-                    <circle className="diagram-point" cx="125" cy="49" r="3" />
-                    <circle className="diagram-point" cx="174" cy="24" r="3" />
+                  <svg viewBox="0 0 220 150">
+                    <path className="diagram-axis" d="M28 118h168M36 112V28" />
+                    <rect className="diagram-bar" x="52" y="82" width="24" height="36" rx="4" />
+                    <rect className="diagram-bar" x="90" y="58" width="24" height="60" rx="4" />
+                    <rect className="diagram-bar" x="128" y="70" width="24" height="48" rx="4" />
+                    <rect className="diagram-bar" x="166" y="40" width="24" height="78" rx="4" />
+                    <path className="diagram-trend" d="m48 72 42-22 38 12 52-32" />
+                    <circle className="diagram-point" cx="48" cy="72" r="3.5" />
+                    <circle className="diagram-point" cx="90" cy="50" r="3.5" />
+                    <circle className="diagram-point" cx="128" cy="62" r="3.5" />
+                    <circle className="diagram-point" cx="180" cy="30" r="3.5" />
                   </svg>
                 </div>
               </article>
@@ -326,25 +384,37 @@ export function App() {
                 role="link"
                 aria-label="Add project URL for Telegram Link Extraction & Verification Automation"
               >
-                <div className="project-number">03</div>
-                <div>
-                  <h3>Telegram Link Extraction & Verification Automation</h3>
+                <div className="project-copy">
+                  <div className="project-kicker">
+                    <span className="project-number">03</span>
+                    <span className="status">Automation</span>
+                  </div>
+                  <h3>Telegram Link Extraction & Verification</h3>
                   <p>
-                    Developed Python-based Telegram utilities to retrieve message and media-post links, extract
-                    relevant URLs, and organize results into text files for verification and reporting workflows.
+                    Python utilities that pull message and media-post links from Telegram, then leave the URLs in a
+                    text file for verification and reporting.
                   </p>
-                  <p className="project-tools">Python · Telethon · Telegram API · File handling</p>
+                  <ul className="project-points">
+                    <li>Reads message and media posts through Telethon.</li>
+                    <li>Pulls out the URLs that need a second look.</li>
+                    <li>Saves the result as a text file for the reporting workflow.</li>
+                  </ul>
+                  <p className="project-tools">
+                    <span>Python</span>
+                    <span>Telethon</span>
+                    <span>Telegram API</span>
+                  </p>
                 </div>
                 <div className="project-visual" aria-hidden="true">
-                  <svg viewBox="0 0 220 120">
-                    <rect className="diagram-box" x="30" y="28" width="106" height="64" rx="14" />
-                    <path className="diagram-glyph" d="M48 46h68M48 57h34M48 68h45" />
+                  <svg viewBox="0 0 220 150">
+                    <rect className="diagram-box" x="22" y="36" width="112" height="78" rx="16" />
+                    <path className="diagram-glyph" d="M42 58h74M42 72h40M42 86h52" />
                     <path
                       className="diagram-link"
-                      d="m151 47 8-8a12 12 0 0 1 17 17l-9 9m-2 9-8 8a12 12 0 0 1-17-17l9-9m7 16 16-16"
+                      d="m150 58 8-8a12 12 0 0 1 17 17l-9 9m-2 9-8 8a12 12 0 0 1-17-17l9-9m7 16 16-16"
                     />
-                    <circle className="diagram-dot" cx="185" cy="82" r="9" />
-                    <path className="diagram-check" d="m181 82 3 3 5-6" />
+                    <circle className="diagram-dot" cx="186" cy="104" r="11" />
+                    <path className="diagram-check" d="m181 104 3.5 3.5 6-7" />
                   </svg>
                 </div>
               </article>
@@ -374,11 +444,11 @@ export function App() {
                 </span>
                 <span>shanmugakuamr1999@gmail.com</span>
               </a>
-              <a className="contact-link-row phone-placeholder" href="tel:YOUR_PHONE_NUMBER" data-phone-placeholder>
+              <a className="contact-link-row" href="tel:+919715063420">
                 <span>
                   <span className="contact-icon-text">☎</span> Phone
                 </span>
-                <span>ADD YOUR CONTACT NUMBER</span>
+                <span>+91 97150 63420</span>
               </a>
               <a
                 className="contact-link-row"

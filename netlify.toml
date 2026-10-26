@@ -18,6 +18,16 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+[[redirects]]
+  from = "/passion"
+  to = "/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/passion/"
+  to = "/index.html"
+  status = 200
+
 [[headers]]
   for = "/assets/Shanmugakumar-M-Resume.pdf"
   [headers.values]
